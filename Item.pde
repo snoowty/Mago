@@ -32,9 +32,21 @@ class Mush{
 
 
 class Key{
+  int x = 100,y=190;
+  boolean touch = false;
   
     void display(){
-    //To do
+      
+      stroke(250,250,0);
+      ellipse(x,y,20,20);
+      line(x,y+10,x,y+40);
+      line(x,y+22,x+10,y+22);
+      line(x,y+28,x+10,y+28);
+      stroke(0);
+      
+  }
+  void hit(int hx,int hy){
+    if(dist(x,y+22,hx,hy) <= 20) touch = true;
   }
   
   void move(){

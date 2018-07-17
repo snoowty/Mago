@@ -43,14 +43,34 @@ void setup() {
 
 int cnt = 0;
 void draw() {
-  
+  boolean stageclear = false;
+  if(stage.open == true){ 
+    
+  }
+if(stageclear == false){
   cnt++;
   println(cnt);
 
   //meteo[cnt      = new nomalMeteo();
-
+fill(255);
   stage.display();
   player.display();
+  fill(255);
+   a_key.hit(player.x,player.y);
+  if(a_key.touch == false){
+    a_key.display();
+  }
+  if(a_key.touch == true){
+    
+    a_key.display();
+    a_key.x = 780;
+    a_key.y = 10;
+    fill(0);
+    text("かくとく！",700,10);
+    fill(255);
+    stage.hit(player.x,player.y);
+    
+  }
   
   int hx = player.x;
   int hy = player.y;
@@ -162,6 +182,10 @@ player.jamp_jgd();
   */
 }
 
+if(stageclear == true){
+  text("かくとく！",500,100);
+}
+}
 void keyPressed(){
   player.keyPressed();
 }

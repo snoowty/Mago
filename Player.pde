@@ -42,6 +42,8 @@ class Player {
 
   //キャラの表示
   void display() {
+   //扉を超えたら色を変える。
+    if(x >= 780 && stage.open == true) stroke(#cccccc);
     line(x, y, x, y-30);
     //To do
   }
