@@ -20,30 +20,30 @@ nomalMeteo[] x;
 
 void setup() {
   size(800, 250);
-  
-  
+
+
   //fullScreen();
 
   //インスタンスの生成
   stage       = new Stage();
   road         = new Road();
   player      = new Player(200, height-20);
-  
-  
+
+
   x = new nomalMeteo[10];
   for (int i = 0; i < x.length; i++) {
    x[i]= new nomalMeteo();
   }
-  
+
   enemy     = new Walk_En();
   mush        = new Mush();
   a_key       = new Key();
-  
+
 }
 
 int cnt = 0;
 void draw() {
-  
+
   cnt++;
   println(cnt);
 
@@ -51,54 +51,58 @@ void draw() {
 
   stage.display();
   player.display();
-  
+
   int hx = player.x;
   int hy = player.y;
-  
-  
+
+
   x[0].display();
   x[0].move();
   x[0].hit(hx,hy);
-  
-  if(cnt >50 && x[1].sheeld_judge == false){
+  x[0].sheeld_hit();
+
+  if(cnt >50){
   x[1].display();
   x[1].move();
   x[1].hit(hx,hy);
   x[1].sheeld_hit();
   }
-  
-  if(cnt >100 && x[1].sheeld_judge == false){
+
+
+  if(cnt >100){
   x[2].display();
   x[2].move();
   x[2].hit(hx,hy);
+  x[2].sheeld_hit();
   }
-  
+
   if(cnt > 150){
   x[3].display();
   x[3].move();
   x[3].hit(hx,hy);
+  x[3].sheeld_hit();
   }
-  
+
   if(x[0].judge == true) {
   player.isdead();
   noLoop();
   }
-  
+
   if(x[1].judge == true) {
   player.isdead();
   noLoop();
   }
-  
+
   if(x[2].judge == true) {
   player.isdead();
   noLoop();
   }
-  
+
   if(x[3].judge == true) {
   player.isdead();
   noLoop();
   }
- 
+
  if (road.drawroad == true) {
     fill(0);
     text("drawroad = true", 200, 10);
@@ -106,7 +110,7 @@ void draw() {
     fill(0);
     text("drawroad = false", 200, 10);
   }
-  
+
    player.jamp_move(3);
   road.drawline();
 
@@ -131,7 +135,7 @@ void draw() {
   }
 
   //player.jamp_jgd();
-  
+
   player.jamp_start();
 
 /*
@@ -164,7 +168,7 @@ void keyPressed(){
 
 void keyReleased() {
   //player.jamp();
-  
+
   player.keyReleased();
 
   //プレイヤーを初期位置に戻す
