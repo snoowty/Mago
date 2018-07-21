@@ -21,7 +21,7 @@
 
 //隕石クラス
 abstract class Meteo {
-  float x = int(random(0,width));
+  float x = int(random(130,width));
   float y = 50;
   boolean judge = false;
   boolean sheeld_judge = false;
@@ -30,6 +30,7 @@ abstract class Meteo {
   float x2;
   float y2;
   float mm2, bb2;
+  boolean judge_rect = false;
 
   //プレイヤーが描かれた道の上にいるかどうか。いない時にfalse
   boolean landingLine = false;
@@ -41,6 +42,14 @@ abstract class Meteo {
   
   void hit(int hx, int hy) {
     if(dist(x, y+13, hx, hy) <= 13) judge = true;
+  }
+  
+  void hitbox(int a,int b,int c,int d){
+    if(x>=a && x<=a+c){
+      if(y>=b && y<= b+d){
+        judge_rect = true;
+      }
+    }
   }
   
   void sheeld_hit() {
@@ -128,14 +137,14 @@ class nomalMeteo extends Meteo{
   
   if(y>=height){
     y=0;
-    x = int(random(0,width));
+    x = int(random(130,width));
   }
   if(vertical == true) {
     if(mm2>0) x--;
     else if(mm2<0) x++;
     y = mm2*x + bb2; 
     if(y<=0){
-      x = int(random(0,width));
+      x = int(random(130,width));
       vertical = false;
     }
     text(y,50,50);

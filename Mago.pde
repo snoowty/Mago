@@ -19,7 +19,7 @@ nomalMeteo[] x;
 
 
 void setup() {
-  size(800, 250);
+  size(1000, 350);
   
   
   //fullScreen();
@@ -27,7 +27,7 @@ void setup() {
   //インスタンスの生成
   stage       = new Stage();
   road         = new Road();
-  player      = new Player(200, height-20);
+  player      = new Player(0, height-20,0);
   
   
   x = new nomalMeteo[10];
@@ -43,10 +43,19 @@ void setup() {
 
 int cnt = 0;
 void draw() {
+  
+  
+
   boolean stageclear = false;
   if(stage.open == true){ 
     
   }
+  
+  
+  fill(0);
+  stroke(0);
+  rect(30,30,60,60);
+  
 if(stageclear == false){
   cnt++;
   println(cnt);
@@ -54,8 +63,25 @@ if(stageclear == false){
   //meteo[cnt      = new nomalMeteo();
 fill(255);
   stage.display();
+  stage.stagedisplay();
   player.display();
+  
+  stage.stageMove(player.dx);
+  
   fill(255);
+    if(x[0].judge_rect == false){
+    x[0].hitbox(70,150,60,60);
+    mush.display();
+    if(player.x>70 && player.x<130){
+      if(player.y>180 && player.y<265){
+      player.x = int(random(0,width));
+      player.y = int(random(0,height));
+      }
+    }
+  }
+  
+  
+  
    a_key.hit(player.x,player.y);
   if(a_key.touch == false){
     a_key.display();
@@ -74,6 +100,12 @@ fill(255);
   
   int hx = player.x;
   int hy = player.y;
+  
+
+  
+
+  
+
   
   
   x[0].display();
@@ -131,10 +163,10 @@ fill(255);
     text("drawroad = false", 200, 10);
   }
   
-   player.jamp_move(3);
+   player.jamp_move(3,50);
   road.drawline();
 
-  player.Landing(road.drawroad, int(player.p_stop2(road.x0, road.y0, mouseX, mouseY) ), int(player.p_stop(road.x0, road.y0, mouseX, mouseY) ), road.x0, mouseX );
+  player.Landing(road.drawroad, player.x, int(player.p_stop(road.x0, road.y0, mouseX, mouseY) ), road.x0, mouseX, stage.stage1_y(player.dx, player.y)/*height-20*/);//height-20は仮
   if (player.landingLine == true) {
     fill(0);
     text("landingLine = true", 200, 30);
@@ -143,7 +175,7 @@ fill(255);
     text("landingLine = false", 200, 30);
   }
 
-  player.stage_move(road.drawroad, player.p_stop(road.x0, road.y0, mouseX, mouseY));
+  player.stage_move(road.drawroad, player.p_stop(road.x0, road.y0, mouseX, mouseY), stage.stage1_y(player.dx, player.y));
 
 
   if (player.pjump == true) {

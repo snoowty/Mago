@@ -19,8 +19,9 @@
 
 
 class Mush{
-  
   void display(){
+    rect(70,180,60,60);
+    
     //To do
   }
   
