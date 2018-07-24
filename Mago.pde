@@ -54,7 +54,7 @@ void draw() {
   
   fill(0);
   stroke(0);
-  rect(30,30,60,60);
+  //rect(30,30,60,60);
   
 if(stageclear == false){
   cnt++;
@@ -66,29 +66,41 @@ fill(255);
   stage.stagedisplay();
   player.display();
   
-  stage.stageMove(player.dx);
+  
   
   fill(255);
-    if(x[0].judge_rect == false){
-    x[0].hitbox(70,150,60,60);
-    mush.display();
-    if(player.x>70 && player.x<130){
-      if(player.y>180 && player.y<265){
-      player.x = int(random(0,width));
-      player.y = int(random(0,height));
+  stage.stageMove(player.dx);
+  for (int i = 0; i < x.length; i++) {
+    
+    if(stage.stage3_judge == true)x[i].hitbox(395,90,60,60);
+   if(x[0].judge_rect == false && x[1].judge_rect == false && x[2].judge_rect == false && x[3].judge_rect == false){
+      if(stage.stage3_judge == true){
+      mush.display();
+    if(player.x>395 && player.x<455){
+      if(player.y>90 && player.y<150){
+      player.x = 100;
+      player.y = 250;
       }
     }
   }
+  }
   
+  }
   
+  text(x[0].judge_rectt ,349,100);
+  text(x[1].judge_rectt ,349,110);
+  text(x[2].judge_rectt ,349,120);
+  text(x[3].judge_rectt ,349,130);
+  text(x[4].judge_rectt ,349,140);
+ 
   
    a_key.hit(player.x,player.y);
   if(a_key.touch == false){
-    a_key.display();
+    if(stage.stage3_judge == true) a_key.display();
   }
   if(a_key.touch == true){
     
-    a_key.display();
+    if(stage.stage3_judge == true) a_key.display();
     a_key.x = 780;
     a_key.y = 10;
     fill(0);
@@ -155,6 +167,8 @@ fill(255);
   noLoop();
   }
  
+
+ 
  if (road.drawroad == true) {
     fill(0);
     text("drawroad = true", 200, 10);
@@ -217,7 +231,7 @@ player.jamp_jgd();
 if(stageclear == true){
   text("かくとく！",500,100);
 }
-}
+}  
 void keyPressed(){
   player.keyPressed();
 }

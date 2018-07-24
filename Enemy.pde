@@ -31,6 +31,7 @@ abstract class Meteo {
   float y2;
   float mm2, bb2;
   boolean judge_rect = false;
+  int judge_rectt = 0;
 
   //プレイヤーが描かれた道の上にいるかどうか。いない時にfalse
   boolean landingLine = false;
@@ -48,6 +49,7 @@ abstract class Meteo {
     if(x>=a && x<=a+c){
       if(y>=b && y<= b+d){
         judge_rect = true;
+        judge_rectt = 1;
       }
     }
   }

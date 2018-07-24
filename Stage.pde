@@ -8,11 +8,11 @@
 
 class Stage {
   boolean open = false;
-  boolean stage3_judge = false;
+ 
 
   //直線の床
   void display() {
-    background(255);
+    background(67,135,233);
     line(0, height-20, width, height-20);
 
     rect(width-100,height-100,80,80);
@@ -102,7 +102,7 @@ class Stage {
 
   //ステージ表示
   void stagedisplay() {
-    background(255);
+    background(67,135,233);
 
     line(s1sx - sm, s1sy, s1gx - sm, s1gy);
 
@@ -187,6 +187,7 @@ class Stage {
   }
 
   //ステージの移り変わり関数(引数はプレイヤーの移動距離)
+  boolean stage3_judge = false;
   void stageMove(int px) {
     if (px >= 0 && px < width) {
       sm = 0;
@@ -194,6 +195,7 @@ class Stage {
       sm = width;
     } else if (px <= width * 3) {
       sm = width * 2;
+      stage3_judge = true;
     }
   }
 

@@ -20,7 +20,7 @@
 
 class Mush{
   void display(){
-    rect(70,180,60,60);
+    rect(395,90,60,60);
     
     //To do
   }
@@ -33,16 +33,20 @@ class Mush{
 
 
 class Key{
-  int x = 100,y=190;
+  int x = 425,y=105;
   boolean touch = false;
   
     void display(){
       
-      stroke(250,250,0);
+      stroke(255,241,15);
+      strokeWeight(3);
+      fill(255,241,15);
       ellipse(x,y,20,20);
       line(x,y+10,x,y+40);
       line(x,y+22,x+10,y+22);
       line(x,y+28,x+10,y+28);
+      strokeWeight(1);
+      fill(255);
       stroke(0);
       
   }
