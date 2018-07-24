@@ -62,8 +62,11 @@ if(stageclear == false){
 
   //meteo[cnt      = new nomalMeteo();
 fill(255);
-  stage.display();
+  
   stage.stagedisplay();
+  if(stage.stage3_judge == true) stage.display();
+  if(stage.open == true && width-20<player.x) stroke(140,140,140);
+  else stroke(0);
   player.display();
   
   
@@ -121,13 +124,13 @@ fill(255);
   
   
   x[0].display();
-  x[0].move();
+  x[0].move_1();
   x[0].hit(hx,hy);
   x[0].sheeld_hit();
   
   if(cnt >50){
   x[1].display();
-  x[1].move();
+  x[1].move_1();
   x[1].hit(hx,hy);
   x[1].sheeld_hit();
   }
@@ -135,14 +138,14 @@ fill(255);
   
   if(cnt >100){
   x[2].display();
-  x[2].move();
+  x[2].move_2();
   x[2].hit(hx,hy);
   x[2].sheeld_hit();
   }
   
   if(cnt > 150){
   x[3].display();
-  x[3].move();
+  x[3].move_2();
   x[3].hit(hx,hy);
   x[3].sheeld_hit();
   }

@@ -81,7 +81,6 @@ abstract class Meteo {
   }
   
 
-  abstract void move () ;
   
   void land(boolean drawroad, int x0, int y0, float sx, float mx){
     float smallx;
@@ -134,19 +133,39 @@ abstract class Meteo {
 
 class nomalMeteo extends Meteo{
   
-  void move(){
+  void move_1(){
   //To do
   
   if(y>=height){
     y=0;
-    x = int(random(130,width));
+    x = int(random(0,394));
   }
   if(vertical == true) {
     if(mm2>0) x--;
     else if(mm2<0) x++;
     y = mm2*x + bb2; 
     if(y<=0){
-      x = int(random(130,width));
+      x = int(random(0,394));
+      vertical = false;
+    }
+    text(y,50,50);
+  }else
+  y++;
+  }
+
+void move_2(){
+  //To do
+  
+  if(y>=height){
+    y=0;
+    x = int(random(456,width));
+  }
+  if(vertical == true) {
+    if(mm2>0) x--;
+    else if(mm2<0) x++;
+    y = mm2*x + bb2; 
+    if(y<=0){
+      x = int(random(456,width));
       vertical = false;
     }
     text(y,50,50);

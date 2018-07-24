@@ -12,9 +12,10 @@ class Stage {
 
   //直線の床
   void display() {
-    background(67,135,233);
-    line(0, height-20, width, height-20);
 
+   // line(0, height-20, width, height-20);
+    if(open == false)fill(136,111,67);
+    else fill(0);
     rect(width-100,height-100,80,80);
     if(open == false){
     line(width-60,height-100,width-60,height-20);

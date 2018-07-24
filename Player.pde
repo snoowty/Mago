@@ -49,6 +49,7 @@ class Player {
 
   //キャラの表示
   void display() {
+    
     line(x, y, x, y-30);
 
     //画面上でのプレイヤーの座標が0より大きい時
