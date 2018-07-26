@@ -223,15 +223,16 @@ class Player {
 
         //プレイヤーのx,y座標と線の着地位置のx,y座標間の距離が4以下の時　かつ　ジャンプ中の時   かつ　下降中の時     
         if ( dist(x, y, x0, y0)  <= 4 && pjump == true  && jumpheight == false) {
-          pjump = false;
+          if(y <= stage_y) pjump = false;
           landingLine = true;
           
         }
         //そうでない時
         else {
           pjump = true;
-          if (dist(x, y, x, stage_y) <= 50 && dist(x, y, x, stage_y) >= 45) {
-            pjump = false;
+          if (dist(x, y, x, stage_y) <= 50 && dist(x, y, x, stage_y) >= 45 && y <= stage_y) {
+            if(y <= stage_y)  pjump = false;
+            text(stage_y, 100,100);
             //text("zaesxrdctfvygbuhnijm", 600, 80);
           }
         }
@@ -257,7 +258,7 @@ class Player {
       //text("道が引かれていません", 600, 100);
 
       if (dist(x, y, x, stage_y) <= 50 && dist(x, y, x, stage_y) >= 45) {
-        pjump = false;
+        if(y <= stage_y)  pjump = false;
       }
     }
   }

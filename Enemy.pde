@@ -79,6 +79,7 @@ abstract class Meteo {
   void sheeld_hit() {
 
     //
+    
     if ( (x >= mouseX && x <= road.x0) || (x >= road.x0 && x <=mouseX) ) {
 
       //切片
@@ -92,6 +93,8 @@ abstract class Meteo {
         // x = int(random(0,width));
 
         //隕石反射時の傾き
+        if((road.y0 - mouseY)/(road.x0 - mouseX) != 0) {
+          
         float m2 = -1/((road.y0 - mouseY)/(road.x0 - mouseX));
 
         x2 = x;
@@ -101,14 +104,18 @@ abstract class Meteo {
 
         bb2 = b2;
         mm2 = m2;
+      
+      }else{
+        vertical = true;
+        mm2 = 0;
       }
-      /*
-      //デバック
+      }
+      
        text("m2=",100,200);
        text(mm2,130,200);
        text("b2=",200,200);
        text(bb2,230,200);
-       */
+       
     }
   }
 
@@ -178,11 +185,17 @@ class nomalMeteo extends Meteo {
     if (vertical == true) {
 
       //
-      if (mm2>0) x--;
+      if (mm2>0){
+        x--;
+        y = mm2*x + bb2; 
       //
-      else if (mm2<0) x++;
-
-      y = mm2*x + bb2; 
+      } else if (mm2<0){
+        x++;
+        y = mm2*x + bb2; 
+      }else if(mm2 == 0){
+        y--;
+      }
+      //y = mm2*x + bb2; 
 
       //
       if (y <= 0) {
@@ -208,13 +221,17 @@ class nomalMeteo extends Meteo {
     if (vertical == true) {
 
       //
-      if (mm2 > 0) x--;
-
+     if (mm2>0){
+        x--;
+        y = mm2*x + bb2; 
       //
-      else if (mm2 < 0) x++;
-
-      y = mm2 * x + bb2;
-
+      } else if (mm2<0){
+        x++;
+        y = mm2*x + bb2; 
+      }else if ( mm2 == 0){
+        y--;
+      }
+  
       //
       if (y<= 0) {
         x = int( random(470, width) );
