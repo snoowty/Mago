@@ -8,7 +8,7 @@
 
 class Stage {
 
-  
+
   //ドアのオープン判定
   boolean dooropen = false;
 
@@ -91,8 +91,8 @@ class Stage {
     line(s3sx_2 - sm, s3sy_2, s3gx_2 -sm, s3gy_2);
     line(s3sx_3 - sm, s3sy_3, s3gx_3 -sm, s3gy_3);
   }
-  
-    //ドアの表示
+
+  //ドアの表示
   void doordisplay() {
 
     //ドアが閉まっている時
@@ -114,18 +114,7 @@ class Stage {
   //プレイヤーのx座標を受け取ってステージに対応するy座標を返す
   int stage1_y(int pdx, int py) {
 
-    /*
-    text("s1sx = ", 30, 50);
-     text(s1sx, 80, 50);
-     text("s1gx = ", 30, 80);
-     text(s1gx, 80, 80);
-     text("s2sx = ", 30, 110);
-     text(s2sx, 80, 110);
-     text("s2sx = ", 30, 140);
-     text(s2sx, 80, 140);
-     text("s2sx_2 = ", 30, 170);
-     text(s2sx_2, 80, 170);
-     */
+
 
     if (s1sx  <= pdx && pdx <= s1gx) {
       return s1sy;
@@ -150,10 +139,10 @@ class Stage {
     }
     return 400;
   }
-  
+
   //ドアの開閉の関数（引数はプレイヤーの座標）
   void hit(int hx, int hy) {
-    
+
     //プレイヤーとドアの距離が30以下の時かつ三面にいる時
     if ( dist( width-60, height-50, hx, hy ) <= 30  && stage3_judge == true) {
       dooropen = true;

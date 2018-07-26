@@ -35,20 +35,6 @@ class Road {
 
       mouse_x = mouseX;
       mouse_y = mouseY;
-
-
-      text("x0 = ", 400, 100);
-      text(x0, 430, 100);
-
-      text("y0 = ", 400, 120);
-      text(y0, 430, 120);
-
-      text("mouseX = ", 400, 140);
-      text(mouseX, 460, 140);
-
-      text("mouseY = ", 400, 160);
-      text(mouseY, 460, 160);
-
     } 
     //押されていない時線の始点を設定
     else {

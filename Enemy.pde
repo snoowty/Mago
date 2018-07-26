@@ -85,7 +85,7 @@ abstract class Meteo {
   void sheeld_hit() {
 
     //
-    
+
     if ( (x >= mouseX && x <= road.x0) || (x >= road.x0 && x <=mouseX) ) {
 
       //切片
@@ -95,33 +95,25 @@ abstract class Meteo {
 
       //　の時
       if (y + 12.5 >= h - 1 && y + 12.5 <= h + 1) {
-        // y = 0;
-        // x = int(random(0,width));
+
 
         //隕石反射時の傾き
-        if((road.y0 - mouseY)/(road.x0 - mouseX) != 0) {
-          
-        float m2 = -1/((road.y0 - mouseY)/(road.x0 - mouseX));
+        if ((road.y0 - mouseY)/(road.x0 - mouseX) != 0) {
 
-        x2 = x;
-        vertical = true;
+          float m2 = -1/((road.y0 - mouseY)/(road.x0 - mouseX));
 
-        float b2 = -m2 * x + y;
+          x2 = x;
+          vertical = true;
 
-        bb2 = b2;
-        mm2 = m2;
-      
-      }else{
-        vertical = true;
-        mm2 = 0;
+          float b2 = -m2 * x + y;
+
+          bb2 = b2;
+          mm2 = m2;
+        } else {
+          vertical = true;
+          mm2 = 0;
+        }
       }
-      }
-      
-       text("m2=",100,200);
-       text(mm2,130,200);
-       text("b2=",200,200);
-       text(bb2,230,200);
-       
     }
   }
 
@@ -151,12 +143,10 @@ abstract class Meteo {
         //y座標に重なった時       
         if ( dist(x, y, x0, y0)  <= 4 ) {
           landingLine = true;
-          
         }
         //
         else if (landingLine == true) {
           landingLine = false;
-          
         }
       }
       //隕石が範囲内にいない時
@@ -167,7 +157,7 @@ abstract class Meteo {
     //シールド（道）が引かれていない時
     else {
       landingLine = false;
-      
+
       //
       if (y >= height-20) {
       }
@@ -191,24 +181,23 @@ class nomalMeteo extends Meteo {
     if (vertical == true) {
 
       //
-      if (mm2>0){
+      if (mm2>0) {
         x--;
         y = mm2*x + bb2; 
-      //
-      } else if (mm2<0){
+        //
+      } else if (mm2<0) {
         x++;
-        y = mm2*x + bb2; 
-      }else if(mm2 == 0){
+        y = mm2*x + bb2;
+      } else if (mm2 == 0) {
         y--;
       }
-      //y = mm2*x + bb2; 
+
 
       //
       if (y <= 0) {
         x = int(random(0, 350));
         vertical = false;
       }
-      // text(y,50,50);
     }
     //
     else y++;
@@ -227,23 +216,22 @@ class nomalMeteo extends Meteo {
     if (vertical == true) {
 
       //
-     if (mm2>0){
+      if (mm2>0) {
         x--;
         y = mm2*x + bb2; 
-      //
-      } else if (mm2<0){
+        //
+      } else if (mm2<0) {
         x++;
-        y = mm2*x + bb2; 
-      }else if ( mm2 == 0){
+        y = mm2*x + bb2;
+      } else if ( mm2 == 0) {
         y--;
       }
-  
+
       //
       if (y<= 0) {
         x = int( random(470, width) );
         vertical = false;
       }
-      //text(y, 50, 50);
     }
     //
     else y++;

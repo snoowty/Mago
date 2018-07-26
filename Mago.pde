@@ -34,8 +34,6 @@ void setup() {
   size(1000, 350);
 
 
-  //fullScreen();
-
   //インスタンスの生成
   stage       = new Stage();
   road         = new Road();
@@ -73,19 +71,10 @@ void draw() {
     if (stage.dooropen == true) {
     }
 
-    /*
-    fill(0);
-     stroke(0);
-     rect(30,30,60,60);
-     */
 
     //ステージクリアしていない時
     if (stageclear == false) {
       cnt++;
-      //println(cnt);
-
-      //meteo[cnt      = new nomalMeteo();
-      fill(255);
 
       stage.stagedisplay();
 
@@ -103,21 +92,8 @@ void draw() {
       if (stage.dooropen == true) {
 
         g_clear.cleardisplay();
-
-        /*
-        noLoop();
-         background(255);
-         textAlign(CENTER);
-         
-         PFont  font = createFont("Yu Gothic", 64, true);
-         textFont(font);
-         
-         textSize(64);
-         fill(100);
-         text("クリアー", width/2, height/2);
-         */
       }
-      
+
       fill(255);
 
       stage.stageMove(player.dx);
@@ -127,7 +103,7 @@ void draw() {
 
         //ステージ３にいる時に隕石が箱に当たった時
         if (stage.stage3_judge == true) x[i].hitbox(box.box_x, box.box_y, box.box_w, box.box_h);
-        
+
         //
         if (x[0].judge_rect == false && x[1].judge_rect == false && x[2].judge_rect == false && x[3].judge_rect == false) {
           //
@@ -146,14 +122,6 @@ void draw() {
         }
       }
 
-      /*
-      text(x[0].judge_rectt, 349, 100);
-       text(x[1].judge_rectt, 349, 110);
-       text(x[2].judge_rectt, 349, 120);
-       text(x[3].judge_rectt, 349, 130);
-       text(x[4].judge_rectt, 349, 140);
-       */
-
 
       a_key.hit(player.x, player.y);
 
@@ -162,13 +130,13 @@ void draw() {
         //三面にいる時
         if (stage.stage3_judge == true) a_key.display();
       }
-      // if (a_key.touch == true) {
+
 
       //鍵を獲得している時
       else {
-        if(stage.dooropen == false)
-        a_key.get_key_display();
-   
+        if (stage.dooropen == false)
+          a_key.get_key_display();
+
         stage.hit(player.x, player.y);
       }
 
@@ -216,47 +184,26 @@ void draw() {
       }
 
 
-
-      /*
-      if (road.drawroad == true) {
-       fill(0);
-       text("drawroad = true", 200, 10);
-       } else {
-       fill(0);
-       text("drawroad = false", 200, 10);
-       }
-       */
-
       player.jamp_move(3, 50);
       road.drawline();
 
       player.Landing(road.drawroad, player.x, int(player.p_stop(road.x0, road.y0, mouseX, mouseY) ), road.x0, mouseX, stage.stage1_y(player.dx, player.y) );
-      /*
-      if (player.landingLine == true) {
-       fill(0);
-       text("landingLine = true", 200, 30);
-       } else {
-       fill(0);
-       text("landingLine = false", 200, 30);
-       }
-       */
+
 
       player.stage_move(road.drawroad, player.p_stop(road.x0, road.y0, mouseX, mouseY));
 
-      
+
       if (player.pjump == true) {
-       fill(0);
-       text("pjump = true", 200, 50);
-       } else {
-       fill(0);
-       text("pjump= false", 200, 50);
-       }
-       
+        fill(0);
+        text("pjump = true", 200, 50);
+      } else {
+        fill(0);
+        text("pjump= false", 200, 50);
+      }
+
 
       player.jamp_start();
     }
-
-
   }
 }
 
@@ -281,7 +228,7 @@ void keyReleased() {
     player.pjump = false;
     player.landingLine = false;
   }
-  
+
   //リトライボタン
   if (key == 'r') {
     player.x = 1;
@@ -289,9 +236,9 @@ void keyReleased() {
     player.dx = 1;
     player.pjump = false;
     player.landingLine = false;
-    
-    for(int i = 0; i < 4; i++){
+
+    for (int i = 0; i < 4; i++) {
       x[i].judge = false;
+    }
   }
- }
 }

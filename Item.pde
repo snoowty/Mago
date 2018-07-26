@@ -61,9 +61,9 @@ class Key {
     x = 800;
     y = 10;
     display();
-    
+
     fill(0);
-    
+
     text("かくとく！", 700, 30);
     fill(255);
   }

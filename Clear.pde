@@ -1,19 +1,18 @@
 //ステージクリア画面クラス
 
-class Clear{
-  
-  void cleardisplay(){
+class Clear {
 
-        background(255);
-                //noLoop();
-        textAlign(CENTER);
+  void cleardisplay() {
 
-        PFont  font = createFont("Yu Gothic", 64, true);
-        textFont(font);
+    background(255);
 
-        textSize(64);
-        fill(100);
-        text("クリアー", width/2, height/2);
+    textAlign(CENTER);
+
+    PFont  font = createFont("Yu Gothic", 64, true);
+    textFont(font);
+
+    textSize(64);
+    fill(100);
+    text("クリアー", width/2, height/2);
   }
-        
 }
