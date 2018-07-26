@@ -63,11 +63,11 @@ class Key {
     display();
 
     fill(0);
-
+    textSize(16);
     text("かくとく！", 700, 30);
     fill(255);
   }
   void hit(int hx, int hy) {
-    if (dist(x, y+22, hx, hy) <= 20) touch = true;
+    if (dist(x, y+22, hx, hy+20) <= 20) touch = true;
   }
 }

@@ -55,9 +55,11 @@ abstract class Meteo {
   //隕石が描かれた道の上にいるかどうか。いない時にfalse
   boolean landingLine = false;
 
+  PImage img = loadImage("icon-star.png");
+
   //隕石の表示
   void display() {
-    ellipse(x, y, 25, 25);
+    image( img, x, y-13);
   }
 
   //隕石の当たり判定

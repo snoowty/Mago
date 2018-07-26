@@ -52,7 +52,6 @@ class Player {
   void display() {
 
     image( img, x-20, y);
-    //line(x, y, x, y-30);
 
     //画面上でのプレイヤーの座標が0より大きい時
     if ( x >= 0) x = x % width;
@@ -203,8 +202,7 @@ class Player {
           pjump = true;
           if (dist(x, y, x, stage_y) <= 50 && dist(x, y, x, stage_y) >= 45 && y <= stage_y) {
             if (y <= stage_y)  pjump = false;
-            text(stage_y, 100, 100);
-            //text("zaesxrdctfvygbuhnijm", 600, 80);
+         
           }
         }
       }

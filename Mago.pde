@@ -109,10 +109,10 @@ void draw() {
           //
           if (stage.stage3_judge == true) {
             box.display();
-            //
+            //箱に当たったらワープする判定
             if (player.x > 395 && player.x < 455) {
               //
-              if (player.y > 90 && player.y < 150) {
+              if (player.y+50 > 85 && player.y < 150) {
                 player.x = 100;
                 player.y = 250;
                 player.dx = width * 2 + 100;
@@ -195,10 +195,10 @@ void draw() {
 
       if (player.pjump == true) {
         fill(0);
-        text("pjump = true", 200, 50);
+     
       } else {
         fill(0);
-        text("pjump= false", 200, 50);
+     
       }
 
 
