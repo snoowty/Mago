@@ -207,7 +207,6 @@ void draw() {
 
         if ((x[i].judge == true) || (hy > height)) {
           player.isdead();
-          noLoop();
           background(255);
           textAlign(CENTER);
           textSize(64);
@@ -282,4 +281,17 @@ void keyReleased() {
     player.pjump = false;
     player.landingLine = false;
   }
+  
+  //リトライボタン
+  if (key == 'r') {
+    player.x = 1;
+    player.y = height - 100;
+    player.dx = 1;
+    player.pjump = false;
+    player.landingLine = false;
+    
+    for(int i = 0; i < 4; i++){
+      x[i].judge = false;
+  }
+ }
 }

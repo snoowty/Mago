@@ -62,7 +62,13 @@ abstract class Meteo {
 
   //隕石の当たり判定
   void hit(int hx, int hy) {
-    if (dist(x, y+13, hx, hy) <= 2) judge = true;
+    if (dist(x, y, hx, hy+10) <= 20) judge = true;
+    if (dist(x, y, hx, hy+20) <= 20) judge = true;
+    if (dist(x, y, hx, hy+30) <= 20) judge = true;
+    if (dist(x, y, hx, hy+40) <= 20) judge = true;
+    if (dist(x, y, hx, hy+25) <= 20) judge = true;
+    if (dist(x, y, hx, hy+35) <= 20) judge = true;
+    if (dist(x, y, hx, hy+45) <= 20) judge = true;
   }
 
   //隕石がボックスに当たった時の関数（引数は箱のx,y座標と幅と高さ）
