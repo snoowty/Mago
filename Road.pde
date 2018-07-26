@@ -19,12 +19,8 @@ class Road {
   float x0;
   float y0;
 
-
-  //float mouse_x ;
- // float mouse_y ;
-
-int mouse_x;
-int mouse_y;
+  int mouse_x;
+  int mouse_y;
 
   //道が描かれているかどうかの判定
   boolean drawroad = false;
@@ -34,7 +30,6 @@ int mouse_y;
     //マウスが押されている時線を引く
     if (mousePressed == true) {
       drawroad = true;
-      //if (dist(x0, y0, mouseX, mouseY) <= 200) {
 
       line(x0, y0, mouseX, mouseY);
 
@@ -54,10 +49,6 @@ int mouse_y;
       text("mouseY = ", 400, 160);
       text(mouseY, 460, 160);
 
-      //To do
-      // } else {
-      // line(x0, y0, mouse_x, mouse_y);
-      // }
     } 
     //押されていない時線の始点を設定
     else {
