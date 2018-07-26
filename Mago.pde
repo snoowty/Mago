@@ -174,12 +174,19 @@ void draw() {
       for (int i = 0; i < x.length; i++) {
 
         if ((x[i].judge == true) || (hy > height)) {
+          if(stage.dooropen == false){
           player.isdead();
           background(255);
           textAlign(CENTER);
           textSize(64);
           fill(100);
+          PImage img = loadImage("gameover.png");
+          image(img, 10, 50); 
           text("GAME OVER", width/2, height/2);
+          
+          textSize(32);
+          text("[R]キーでリトライ", width/2+90, height/2+100);
+        }
         }
       }
 
