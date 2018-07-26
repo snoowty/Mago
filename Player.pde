@@ -46,11 +46,13 @@ class Player {
     dx = dx0;
   }
 
+  PImage img = loadImage("obaa.png");
 
   //キャラの表示
   void display() {
-    
-    line(x, y, x, y-30);
+
+    image( img, x-20, y);
+    //line(x, y, x, y-30);
 
     //画面上でのプレイヤーの座標が0より大きい時
     if ( x >= 0) x = x % width;
@@ -67,7 +69,7 @@ class Player {
 
 
   //プレイヤーのステージ上での移動
-  void stage_move(boolean drawroad, float  y0, int stage_y) {
+  void stage_move(boolean drawroad, float  y0) {
 
     //道が描かれているとき
     if (drawroad == true) {
@@ -252,23 +254,23 @@ class Player {
         }
         //そうでない時
         else {
-        //  if (dist(x, y, x, stage_y) <= 1) {
-            pjump = true;
-            if (dist(x, y, x, stage_y) <= 1) {
-              pjump = false;
-              text("zaesxrdctfvygbuhnijm", 600, 80);
-            }
-        //  }
+          //  if (dist(x, y, x, stage_y) <= 1) {
+          pjump = true;
+          if (dist(x, y, x, stage_y) <= 50 && dist(x, y, x, stage_y) >= 45) {
+            pjump = false;
+            text("zaesxrdctfvygbuhnijm", 600, 80);
+          }
+          //  }
         }
       }
-      
+
       //キャラが道の範囲外の時
       else if (x <= smallx || x >= largex) {
 
         pjump = true;
         landingLine = false;
 
-        if ( dist(x, y, x, stage_y) <= 1) {
+        if ( dist(x, y, x, stage_y) <= 50 && dist(x, y, x, stage_y) >= 45) {
           pjump = false;
           text("zaesxrdctfvygbuhnijm", 600, 80);
         }
@@ -281,7 +283,7 @@ class Player {
       landingLine = false;
       text("道が引かれていません", 600, 100);
 
-      if (dist(x, y, x, stage_y) <= 1) {
+      if (dist(x, y, x, stage_y) <= 50 && dist(x, y, x, stage_y) >= 45) {
         pjump = false;
       }
     }
@@ -318,7 +320,7 @@ class Player {
     text(b, 700, 260);
 
 
-    return int(y);
+    return int(y)-50;
   }
 
 

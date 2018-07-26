@@ -51,7 +51,7 @@ class Key{
       
   }
   void hit(int hx,int hy){
-    if(dist(x,y+22,hx,hy) <= 20) touch = true;
+    if(dist(x,y+22,hx,hy) <= 30) touch = true;
   }
   
   void move(){

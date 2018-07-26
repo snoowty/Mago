@@ -42,7 +42,7 @@ abstract class Meteo {
   }
   
   void hit(int hx, int hy) {
-    if(dist(x, y+13, hx, hy) <= 13) judge = true;
+    if(dist(x, y+13, hx, hy) <= 2) judge = true;
   }
   
   void hitbox(int a,int b,int c,int d){
@@ -138,14 +138,14 @@ class nomalMeteo extends Meteo{
   
   if(y>=height){
     y=0;
-    x = int(random(0,394));
+    x = int(random(0,350));
   }
   if(vertical == true) {
     if(mm2>0) x--;
     else if(mm2<0) x++;
     y = mm2*x + bb2; 
     if(y<=0){
-      x = int(random(0,394));
+      x = int(random(0,350));
       vertical = false;
     }
     text(y,50,50);
@@ -158,14 +158,14 @@ void move_2(){
   
   if(y>=height){
     y=0;
-    x = int(random(456,width));
+    x = int(random(470,width));
   }
   if(vertical == true) {
     if(mm2>0) x--;
     else if(mm2<0) x++;
     y = mm2*x + bb2; 
     if(y<=0){
-      x = int(random(456,width));
+      x = int(random(470,width));
       vertical = false;
     }
     text(y,50,50);

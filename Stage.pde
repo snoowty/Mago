@@ -26,7 +26,7 @@ class Stage {
     }
   
   void hit(int hx,int hy){
-    if(dist(width-60,height-30,hx,hy) <= 20) {
+    if(dist(width-60,height-50,hx,hy) <= 30) {
       open = true;
 
     }
